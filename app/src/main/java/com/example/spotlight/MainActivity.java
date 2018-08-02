@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void run() {
                         SpotlightSequence.getInstance(MainActivity.this,null)
-                                .addSpotlight(switchAnimation, "Switch Animation", "Click to swtich the animation", INTRO_SWITCH)
+                                .addSpotlight(switchAnimation, "Switch Animation", "Click to switch the animation", INTRO_SWITCH)
                                 .addSpotlight(reset, "Reset ", "Click here to reset preferences", INTRO_RESET)
                                 .addSpotlight(resetAndPlay, "Play Again", "Click here to play again", INTRO_REPEAT)
                                 .addSpotlight(changePosAndPlay, "Change Position", "Click here to change position and replay", INTRO_CHANGE_POSITION)
@@ -171,6 +171,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .dismissOnBackPress(true)
                 .enableDismissAfterShown(true)
                 .usageId(usageId) //UNIQUE ID
+//                .showAlways(true)
                 .show();
     }
 
