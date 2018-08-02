@@ -1068,6 +1068,11 @@ public class SpotlightView extends FrameLayout {
             return this;
         }
 
+        public Builder extraPaddingForArc(int padding) {
+            spotlightView.setExtraPaddingForArc(padding);
+            return this;
+        }
+        
 
         public Builder dismissOnTouch(boolean dismissOnTouch) {
             spotlightView.setDismissOnTouch(dismissOnTouch);
