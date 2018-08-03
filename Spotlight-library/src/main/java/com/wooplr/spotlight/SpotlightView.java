@@ -182,7 +182,8 @@ public class SpotlightView extends FrameLayout {
     private int lineAndArcColor = Color.parseColor("#eb273f");
 
 
-    private Typeface mTypeface = null;
+    private Typeface mHeadingTypeface = null;
+    private Typeface mSubHeadingTypeface = null;
 
     private int softwareBtnHeight;
 
@@ -596,8 +597,8 @@ public class SpotlightView extends FrameLayout {
 
         //Textviews
         headingTv = new TextView(activity);
-        if (mTypeface != null)
-            headingTv.setTypeface(mTypeface);
+        if (mHeadingTypeface != null)
+            headingTv.setTypeface(mHeadingTypeface);
 
         if(headingTvSizeDimenUnit != -1)
             headingTv.setTextSize(headingTvSizeDimenUnit,headingTvSize);
@@ -609,8 +610,8 @@ public class SpotlightView extends FrameLayout {
         headingTv.setText(headingTvText);
 
         subHeadingTv = new TextView(activity);
-        if (mTypeface != null)
-            subHeadingTv.setTypeface(mTypeface);
+        if (mSubHeadingTypeface != null)
+            subHeadingTv.setTypeface(mSubHeadingTypeface);
 
         if(subHeadingTvSizeDimenUnit != -1)
             subHeadingTv.setTextSize(subHeadingTvSizeDimenUnit,subHeadingTvSize);
@@ -1012,8 +1013,12 @@ public class SpotlightView extends FrameLayout {
         this.softwareBtnHeight = px;
     }
 
-    public void setTypeface(Typeface typeface) {
-        this.mTypeface = typeface;
+    public void setHeadingTypeface(Typeface typeface) {
+        this.mHeadingTypeface = typeface;
+    }
+    
+    public void setSubHeadingTypeface(Typeface typeface) {
+        this.mSubHeadingTypeface = typeface;
     }
 
     public void setConfiguration(SpotlightConfig configuration) {
