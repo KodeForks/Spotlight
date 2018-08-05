@@ -598,7 +598,7 @@ public class SpotlightView extends FrameLayout {
         //Textviews
         headingTv = new TextView(activity);
         if (mHeadingTypeface != null)
-            headingTv.setHeadingTypeface(mHeadingTypeface);
+            headingTv.setTypeface(mHeadingTypeface);
 
         if(headingTvSizeDimenUnit != -1)
             headingTv.setTextSize(headingTvSizeDimenUnit,headingTvSize);
@@ -611,7 +611,7 @@ public class SpotlightView extends FrameLayout {
 
         subHeadingTv = new TextView(activity);
         if (mSubHeadingTypeface != null)
-            subHeadingTv.setSubHeadingTypeface(mSubHeadingTypeface);
+            subHeadingTv.setTypeface(mSubHeadingTypeface);
 
         if(subHeadingTvSizeDimenUnit != -1)
             subHeadingTv.setTextSize(subHeadingTvSizeDimenUnit,subHeadingTvSize);
