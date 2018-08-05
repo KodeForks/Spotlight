@@ -191,7 +191,7 @@ public class SpotlightView extends FrameLayout {
      * If true -> Do not store spotlight id into preferences so that it can show every time when a particular screen is opened.
      */
     private boolean isShowAlways = false;
-    
+
     private boolean dismissCalled = false;
 
 
@@ -364,7 +364,7 @@ public class SpotlightView extends FrameLayout {
             return;
         }
         dismissCalled = true;
-        
+
         if(!isShowAlways)
             preferencesManager.setDisplayed(usageId);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -598,7 +598,7 @@ public class SpotlightView extends FrameLayout {
         //Textviews
         headingTv = new TextView(activity);
         if (mHeadingTypeface != null)
-            headingTv.setTypeface(mHeadingTypeface);
+            headingTv.setHeadingTypeface(mHeadingTypeface);
 
         if(headingTvSizeDimenUnit != -1)
             headingTv.setTextSize(headingTvSizeDimenUnit,headingTvSize);
@@ -611,7 +611,7 @@ public class SpotlightView extends FrameLayout {
 
         subHeadingTv = new TextView(activity);
         if (mSubHeadingTypeface != null)
-            subHeadingTv.setTypeface(mSubHeadingTypeface);
+            subHeadingTv.setSubHeadingTypeface(mSubHeadingTypeface);
 
         if(subHeadingTvSizeDimenUnit != -1)
             subHeadingTv.setTextSize(subHeadingTvSizeDimenUnit,subHeadingTvSize);
@@ -1016,7 +1016,7 @@ public class SpotlightView extends FrameLayout {
     public void setHeadingTypeface(Typeface typeface) {
         this.mHeadingTypeface = typeface;
     }
-    
+
     public void setSubHeadingTypeface(Typeface typeface) {
         this.mSubHeadingTypeface = typeface;
     }
@@ -1092,7 +1092,7 @@ public class SpotlightView extends FrameLayout {
             spotlightView.setExtraPaddingForArc(padding);
             return this;
         }
-        
+
 
         public Builder dismissOnTouch(boolean dismissOnTouch) {
             spotlightView.setDismissOnTouch(dismissOnTouch);
@@ -1109,8 +1109,13 @@ public class SpotlightView extends FrameLayout {
             return this;
         }
 
-        public Builder setTypeface(Typeface typeface) {
-            spotlightView.setTypeface(typeface);
+        public Builder setHeadingTypeface(Typeface typeface) {
+            spotlightView.setHeadingTypeface(typeface);
+            return this;
+        }
+
+        public Builder setSubHeadingTypeface(Typeface typeface) {
+            spotlightView.setSubHeadingTypeface(typeface);
             return this;
         }
 
