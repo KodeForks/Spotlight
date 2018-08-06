@@ -78,7 +78,7 @@ public class SpotlightSequence {
                 .target(target)
                 .setListener(new SpotlightListener() {
                     @Override
-                    public void onUserClicked(String s) {
+                    public void onUserClicked(SpotlightView spotlightView, String s) {
                         if(!isFastDoubleClick())
                             playNext();
                     }
@@ -107,7 +107,7 @@ public class SpotlightSequence {
                 .target(target)
                 .setListener(new SpotlightListener() {
                     @Override
-                    public void onUserClicked(String s) {
+                    public void onUserClicked(SpotlightView spotlightView, String s) {
                         if(!isFastDoubleClick())
                             playNext();
                     }
@@ -211,4 +211,3 @@ public class SpotlightSequence {
         return false;
     }
 }
-
