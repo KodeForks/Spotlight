@@ -854,7 +854,7 @@ public class SpotlightView extends FrameLayout {
     private void removeSpotlightView() {
 
         if (listener != null)
-            listener.onUserClicked(usageId);
+            listener.onUserClicked(usageId, this);
 
         if (getParent() != null)
             ((ViewGroup) getParent()).removeView(this);
@@ -867,7 +867,7 @@ public class SpotlightView extends FrameLayout {
     public void removeSpotlightView(boolean needOnUserClickedCallback) {
         try{
             if(needOnUserClickedCallback && listener != null)
-                listener.onUserClicked(usageId);
+                listener.onUserClicked(usageId, this);
 
             if (getParent() != null)
                 ((ViewGroup) getParent()).removeView(this);
