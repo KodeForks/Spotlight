@@ -378,7 +378,6 @@ public class SpotlightView extends FrameLayout {
 
     }
 
-
     /**
      * Revel animation from target center to screen width and height
      *
@@ -1019,6 +1018,13 @@ public class SpotlightView extends FrameLayout {
 
     public void setSubHeadingTypeface(Typeface typeface) {
         this.mSubHeadingTypeface = typeface;
+    }
+    
+    // We need this method to recreate the spotlight new after
+    // a orientation change was done because it does not
+    // recreate it correct by itself
+    public void dismissSpotlight() {
+        dismiss();
     }
 
     public void setConfiguration(SpotlightConfig configuration) {
