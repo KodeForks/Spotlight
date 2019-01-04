@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:drawable="@drawable/ic_spotlight_arc"
-    tools:targetApi="lollipop">
+    android:drawable="@drawable/ic_spotlight_arc">
 
     <target
         android:name="curve_left_atrium"
