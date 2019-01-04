@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 
@@ -29,7 +30,7 @@ public class NormalLineAnimDrawable extends Drawable implements ValueAnimator.An
     private float factorY, factorX;
     private AnimPoint curAnimPoint = null;
     private int moveTimes;
-    private List<AnimPoint> mAnimPoints = new ArrayList<AnimPoint>();
+    private List<AnimPoint> mAnimPoints = new ArrayList<>();
     private ObjectAnimator mLineAnim;
     private DisplayMode curDisplayMode = DisplayMode.Appear;
     private long lineAnimDuration = 400;
@@ -105,7 +106,6 @@ public class NormalLineAnimDrawable extends Drawable implements ValueAnimator.An
         return lineAnim;
     }
 
-    @NonNull
     public void setmListner(Animator.AnimatorListener mListner) {
         this.mListner = mListner;
     }
@@ -154,7 +154,7 @@ public class NormalLineAnimDrawable extends Drawable implements ValueAnimator.An
     }
 
     private void drawLine(List<AnimPoint> animPoints, int num, int size) {
-        for (int i = num, j = size; i < j; i++) {
+        for (int i = num; i < size; i++) {
             AnimPoint p = animPoints.get(i);
             mPath2.moveTo(p.getCurX(), p.getCurY());
             mPath2.lineTo(p.getMoveX(), p.getMoveY());
@@ -170,7 +170,7 @@ public class NormalLineAnimDrawable extends Drawable implements ValueAnimator.An
     }
 
     @Override
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         if (curAnimPoint != null) {
             mPath2.rewind();
             float curX = curAnimPoint.getCurX();
@@ -204,7 +204,7 @@ public class NormalLineAnimDrawable extends Drawable implements ValueAnimator.An
 
     @Override
     public int getOpacity() {
-        return 0;
+        return PixelFormat.UNKNOWN;
     }
 
     public List<AnimPoint> getPoints() {

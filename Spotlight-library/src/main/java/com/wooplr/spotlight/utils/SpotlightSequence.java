@@ -1,9 +1,10 @@
 package com.wooplr.spotlight.utils;
 
-/**
+/*
  * Created by Carlos Reyna on 30/07/16.
  */
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
@@ -29,6 +30,7 @@ public class SpotlightSequence {
     private SpotlightConfig config;
     private Queue<SpotlightView.Builder> queue;
 
+    @SuppressLint("StaticFieldLeak")
     private static SpotlightSequence instance;
     private final String TAG = "Tour Sequence";
     private SpotlightSequenceListener spotlightSequenceListener;
@@ -167,7 +169,7 @@ public class SpotlightSequence {
 
     /**
      * Clear all Spotlights usageId from shared preferences.
-     * @param context
+     * @param context the context
      */
     public static void resetSpotlights(@NonNull Context context){
         new PreferencesManager(context).resetAll();
@@ -199,7 +201,7 @@ public class SpotlightSequence {
     /**
      * Method to check if user has clicked withing 1 second or not.
      * It will prevent showing spotlights overlapped on each other.
-     * @return
+     * @return return
      */
     private boolean isFastDoubleClick(){
         long time = System.currentTimeMillis();
