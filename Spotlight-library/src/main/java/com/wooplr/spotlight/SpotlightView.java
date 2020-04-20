@@ -247,7 +247,7 @@ public class SpotlightView extends FrameLayout {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        try{
+        try {
             if (!isReady) return;
 
             if (bitmap == null || canvas == null) {
@@ -265,7 +265,7 @@ public class SpotlightView extends FrameLayout {
             if (canvas != null) {
                 canvas.drawBitmap(bitmap, 0, 0, null);
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -336,14 +336,14 @@ public class SpotlightView extends FrameLayout {
         SpotlightView.this.post(new Runnable() {
             @Override
             public void run() {
-                try{
+                try {
                     boolean isAttachedToWindow = true;
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                         isAttachedToWindow = SpotlightView.this.isAttachedToWindow();
                     }
-                     if (isAttachedToWindow) {
+                    if (isAttachedToWindow) {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                             if (isRevealAnimationEnabled)
+                            if (isRevealAnimationEnabled)
                                 startRevealAnimation(activity);
                             else {
                                 startFadinAnimation(activity);
@@ -352,7 +352,7 @@ public class SpotlightView extends FrameLayout {
                             startFadinAnimation(activity);
                         }
                     }
-                }catch(Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -612,7 +612,7 @@ public class SpotlightView extends FrameLayout {
             headingTv.setTypeface(mHeadingTypeface);
 
         if (headingTvSizeDimenUnit != -1)
-            headingTv.setTextSize(headingTvSizeDimenUnit,headingTvSize);
+            headingTv.setTextSize(headingTvSizeDimenUnit, headingTvSize);
         else
             headingTv.setTextSize(headingTvSize);
 
@@ -625,7 +625,7 @@ public class SpotlightView extends FrameLayout {
             subHeadingTv.setTypeface(mSubHeadingTypeface);
 
         if (subHeadingTvSizeDimenUnit != -1)
-            subHeadingTv.setTextSize(subHeadingTvSizeDimenUnit,subHeadingTvSize);
+            subHeadingTv.setTextSize(subHeadingTvSizeDimenUnit, subHeadingTvSize);
         else
             subHeadingTv.setTextSize(subHeadingTvSize);
 
@@ -874,16 +874,17 @@ public class SpotlightView extends FrameLayout {
 
     /**
      * Remove the spotlight view
+     *
      * @param needOnUserClickedCallback true, if user wants a call back when this spotlight view is removed from parent.
      */
     public void removeSpotlightView(boolean needOnUserClickedCallback) {
-        try{
+        try {
             if (needOnUserClickedCallback && listener != null)
                 listener.onUserClicked(this, usageId);
 
             if (getParent() != null)
                 ((ViewGroup) getParent()).removeView(this);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -928,7 +929,7 @@ public class SpotlightView extends FrameLayout {
         isPerformClick = performClick;
     }
 
-    public void setShowAlways(boolean showAlways){
+    public void setShowAlways(boolean showAlways) {
         isShowAlways = showAlways;
     }
 
@@ -974,7 +975,7 @@ public class SpotlightView extends FrameLayout {
         this.headingTvSize = headingTvSize;
     }
 
-    public void setHeadingTvSize(int dimenUnit,int headingTvSize) {
+    public void setHeadingTvSize(int dimenUnit, int headingTvSize) {
         this.headingTvSizeDimenUnit = dimenUnit;
         this.headingTvSize = headingTvSize;
     }
@@ -1020,7 +1021,7 @@ public class SpotlightView extends FrameLayout {
         this.lineEffect = pathEffect;
     }
 
-    private void setSoftwareBtnHeight(int px){
+    private void setSoftwareBtnHeight(int px) {
         this.softwareBtnHeight = px;
     }
 
@@ -1031,7 +1032,7 @@ public class SpotlightView extends FrameLayout {
     public void setSubHeadingTypeface(Typeface typeface) {
         this.mSubHeadingTypeface = typeface;
     }
-    
+
     // We need this method to recreate the spotlight new after
     // a orientation change was done because it does not
     // recreate it correct by itself
@@ -1166,7 +1167,7 @@ public class SpotlightView extends FrameLayout {
         }
 
         public Builder headingTvSize(int dimenUnit, int headingTvSize) {
-            spotlightView.setHeadingTvSize(dimenUnit,headingTvSize);
+            spotlightView.setHeadingTvSize(dimenUnit, headingTvSize);
             return this;
         }
 
@@ -1186,7 +1187,7 @@ public class SpotlightView extends FrameLayout {
         }
 
         public Builder subHeadingTvSize(int dimenUnit, int headingTvSize) {
-            spotlightView.setSubHeadingTvSize(dimenUnit,headingTvSize);
+            spotlightView.setSubHeadingTvSize(dimenUnit, headingTvSize);
             return this;
         }
 
@@ -1272,35 +1273,34 @@ public class SpotlightView extends FrameLayout {
         Log.d("Spotlight", s);
     }
 
-    private int getViewHeight(){
-        if (getWidth() > getHeight()){
+    private int getViewHeight() {
+        if (getWidth() > getHeight()) {
             //Landscape
             return getHeight();
-        }else{
+        } else {
             //Portrait
             return (getHeight() - softwareBtnHeight);
         }
     }
 
-    private int getViewWidth(){
-        if (getWidth() > getHeight()){
+    private int getViewWidth() {
+        if (getWidth() > getHeight()) {
             //Landscape
             return (getWidth() - softwareBtnHeight);
-        }else{
+        } else {
             //Portrait
             return getWidth();
         }
     }
 
     private static int getSoftButtonsBarHeight(Activity activity) {
-        try{
+        try {
             // getRealMetrics is only available with API 17 and +
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                 DisplayMetrics metrics = new DisplayMetrics();
                 activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-                if (metrics.heightPixels > metrics.widthPixels)
-                {
+                if (metrics.heightPixels > metrics.widthPixels) {
                     //Portrait
                     int usableHeight = metrics.heightPixels;
                     activity.getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
@@ -1320,7 +1320,7 @@ public class SpotlightView extends FrameLayout {
                         return 0;
                 }
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return 0;
@@ -1329,22 +1329,23 @@ public class SpotlightView extends FrameLayout {
     /**
      * This will remove all usage ids from preferences.
      */
-    public void resetAllUsageIds(){
-        try{
+    public void resetAllUsageIds() {
+        try {
             preferencesManager.resetAll();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     /**
      * This will remove given usage id from preferences.
+     *
      * @param id Spotlight usage id to be removed
      */
-    public void resetUsageId(String id){
-        try{
+    public void resetUsageId(String id) {
+        try {
             preferencesManager.reset(id);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
