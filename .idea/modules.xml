@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Documents-Spotlight.iml" filepath="$PROJECT_DIR$/Documents-Spotlight.iml" group="Spotlight" />
       <module fileurl="file://$PROJECT_DIR$/Spotlight.iml" filepath="$PROJECT_DIR$/Spotlight.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Spotlight-library/Spotlight-library.iml" filepath="$PROJECT_DIR$/Spotlight-library/Spotlight-library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/Spotlight-app.iml" filepath="$PROJECT_DIR$/app/Spotlight-app.iml" group="Spotlight/app" />
+      <module fileurl="file://$PROJECT_DIR$/Spotlight-library/Spotlight-library.iml" filepath="$PROJECT_DIR$/Spotlight-library/Spotlight-library.iml" group="Spotlight/Spotlight-library" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

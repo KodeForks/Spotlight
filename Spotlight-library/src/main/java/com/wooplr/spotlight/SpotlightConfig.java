@@ -39,7 +39,7 @@ public class SpotlightConfig {
         this.fadingTextDuration = 400;
         this.padding = 20;
         this.dismissOnTouch = true;
-        this.dismissOnBackpress=true;
+        this.dismissOnBackpress = true;
         this.isPerformClick = true;
         this.headingTvSize = 24;
         this.headingTvSizeDimenUnit = -1;

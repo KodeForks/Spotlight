@@ -29,7 +29,6 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-
 //    static {
 //        AppCompatDelegate.setCompatVectorFromSourcesEnabled(true);
 //    }
@@ -129,13 +128,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        SpotlightSequence.getInstance(MainActivity.this,null)
+                        SpotlightSequence.getInstance(MainActivity.this, null)
                                 .addSpotlight(switchAnimation, "Switch Animation", "Click to switch the animation", INTRO_SWITCH)
                                 .addSpotlight(reset, "Reset ", "Click here to reset preferences", INTRO_RESET)
                                 .addSpotlight(resetAndPlay, "Play Again", "Click here to play again", INTRO_REPEAT)
                                 .addSpotlight(changePosAndPlay, "Change Position", "Click here to change position and replay", INTRO_CHANGE_POSITION)
                                 .addSpotlight(startSequence, "Start sequence", "Well.. you just clicked here", INTRO_SEQUENCE)
-                                .addSpotlight(fab,"Love", "Like the picture?\n" + "Let others know.", INTRO_CARD)
+                                .addSpotlight(fab, "Love", "Like the picture?\n" + "Let others know.", INTRO_CARD)
                                 .setListener(new SpotlightSequenceListener() {
                                     @Override
                                     public void onSequenceEnd() {
@@ -145,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 })
                                 .startSequence();
                     }
-                },400);
+                }, 400);
                 break;
         }
     }
@@ -179,7 +178,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
-        if(spotLight.isShown()){
+        if (spotLight.isShown()) {
             spotLight.removeSpotlightView(false);//Remove current spotlight view from parent
             resetAndPlay.performClick();//Show it again in new orientation if required.
         }
