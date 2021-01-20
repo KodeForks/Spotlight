@@ -70,9 +70,7 @@ public class NormalLineAnimDrawable extends Drawable implements ValueAnimator.An
         lineAnim.setRepeatMode(ValueAnimator.RESTART);
         lineAnim.setRepeatCount(mAnimPoints.size() - 1);
         lineAnim.addUpdateListener(this);
-        if (android.os.Build.VERSION.SDK_INT > 17) {
-            lineAnim.setAutoCancel(true);
-        }
+        lineAnim.setAutoCancel(true);
         lineAnim.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {

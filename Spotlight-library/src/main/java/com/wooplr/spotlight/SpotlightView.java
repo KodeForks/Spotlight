@@ -647,11 +647,7 @@ public class SpotlightView extends FrameLayout {
         NormalLineAnimDrawable animDrawable1 = new NormalLineAnimDrawable(p);
         if (lineAnimationDuration > 0)
             animDrawable1.setLineAnimDuration(lineAnimationDuration);
-        if (Build.VERSION.SDK_INT < 16) {
-            mView.setBackgroundDrawable(animDrawable1);
-        } else {
-            mView.setBackground(animDrawable1);
-        }
+        mView.setBackground(animDrawable1);
 
         animDrawable1.setPoints(checkLinePoint());
         animDrawable1.playAnim();
@@ -1295,30 +1291,27 @@ public class SpotlightView extends FrameLayout {
 
     private static int getSoftButtonsBarHeight(Activity activity) {
         try {
-            // getRealMetrics is only available with API 17 and +
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                DisplayMetrics metrics = new DisplayMetrics();
-                activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+            DisplayMetrics metrics = new DisplayMetrics();
+            activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-                if (metrics.heightPixels > metrics.widthPixels) {
-                    //Portrait
-                    int usableHeight = metrics.heightPixels;
-                    activity.getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
-                    int realHeight = metrics.heightPixels;
-                    if (realHeight > usableHeight)
-                        return realHeight - usableHeight;
-                    else
-                        return 0;
-                } else {
-                    //Landscape
-                    int usableHeight = metrics.widthPixels;
-                    activity.getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
-                    int realHeight = metrics.widthPixels;
-                    if (realHeight > usableHeight)
-                        return realHeight - usableHeight;
-                    else
-                        return 0;
-                }
+            if (metrics.heightPixels > metrics.widthPixels) {
+                //Portrait
+                int usableHeight = metrics.heightPixels;
+                activity.getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
+                int realHeight = metrics.heightPixels;
+                if (realHeight > usableHeight)
+                    return realHeight - usableHeight;
+                else
+                    return 0;
+            } else {
+                //Landscape
+                int usableHeight = metrics.widthPixels;
+                activity.getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
+                int realHeight = metrics.widthPixels;
+                if (realHeight > usableHeight)
+                    return realHeight - usableHeight;
+                else
+                    return 0;
             }
         } catch (Exception e) {
             e.printStackTrace();
